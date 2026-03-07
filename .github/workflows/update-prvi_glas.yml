@@ -1,7 +1,6 @@
 name: Ažuriraj Prvi glas M3U
 on:
   schedule:
-    # 🕐 8:00 CET i 12:00 CET (UTC+1h)
     - cron: '0 7 * * *'    # 8:00 CET
     - cron: '0 11 * * *'   # 12:00 CET
   workflow_dispatch:
@@ -20,18 +19,17 @@ jobs:
       with:
         node-version: '20'
     
-    # PUPPETEER SPECIFIČNI SETUP
-    - name: Instaliraj Chrome i Puppeteer
+    - name: Instaliraj Puppeteer (SAMO za HRT)
       run: |
         npm init -y
-        npm install puppeteer cheerio axios
+        npm install puppeteer
         npx puppeteer browsers install chrome
     
-    - name: Generiraj M3U s Puppeteer
-      run: node update-m3u.js
+    - name: Generiraj Drugi dio dana M3U
+      run: node update-m3u.js     # ← TVOJ PUPETEER SKRIPTI ZA HRT!
     
-    - name: Commit i push
+    - name: Commit M3U
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
-        commit_message: "Drugi dio dana ažurirano: ${{ github.run_id }}"
+        commit_message: "Drugi dio dana: $(date +%d.%m.%Y\ %H:%M)"
         file_pattern: 'Prvi_glas.m3u'
