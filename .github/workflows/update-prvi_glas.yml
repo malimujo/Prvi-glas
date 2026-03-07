@@ -1,4 +1,4 @@
-name: Ažuriraj Prvi glas M3U
+name: Ažuriraj Telegram Prvi glas M3U
 on:
   schedule:
     - cron: '0 7 * * *'    # 8:00 CET
@@ -19,17 +19,16 @@ jobs:
       with:
         node-version: '20'
     
-    - name: Instaliraj Puppeteer (SAMO ZA TELEGRAM;)
+    - name: Instaliraj xml2js za RSS
       run: |
         npm init -y
-        npm install puppeteer
-        npx puppeteer browsers install chrome
+        npm install xml2js
     
-    - name: Generiraj Prvi glas M3U
-      run: node update-m3u.js     # ← TVOJ PUPETEER SKRIPTI ZA TELEGRAM!
+    - name: Generiraj Telegram M3U
+      run: node update-telegram.js
     
-    - name: Commit M3U
+    - name: Commit i push
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
-        commit_message: "Drugi dio dana: $(date +%d.%m.%Y\ %H:%M)"
-        file_pattern: 'Prvi_glas.m3u'
+        commit_message: "Telegram Prvi glas: $(date +%d.%m.%Y\ %H:%M)"
+        file_pattern: 'telegram-prvi-glas.m3u'
