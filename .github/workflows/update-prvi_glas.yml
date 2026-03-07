@@ -1,4 +1,4 @@
-name: Ažuriraj Drugi dio dana M3U
+name: Ažuriraj Prvi glas M3U
 on:
   schedule:
     # 🕐 8:00 CET i 12:00 CET (UTC+1h)
