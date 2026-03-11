@@ -1,8 +1,9 @@
 name: Ažuriraj Telegram Prvi glas M3U
 on:
   schedule:
-    - cron: '0 7 * * *'    # 8:00 CET
-    - cron: '0 11 * * *'   # 12:00 CET
+    - cron: '0 6 * * *'    # 7:00
+    - cron: '0.30 6 * * *'    # 7:30
+    - cron: '0 7 * * *'    # 8:00
   workflow_dispatch:
 
 permissions:
