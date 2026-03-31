@@ -31,7 +31,7 @@ async function updateM3U() {
     // 3. Kreiraj M3U
     const emisijaInfo = title.length > 40 ? title.substring(0, 40) + '...' : title;
     const m3uContent = `#EXTM3U
-#EXTINF:-1 tvg-logo="https://drive.google.com/uc?id=1AzUL3rJNCNkB0SAORvzzlivSnPwa9LfT", group-title="Slušaonica", ${emisijaInfo}
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/malimujo/Prvi-glas/main/prvi-glas-cover-update.png", group-title="Slušaonica", ${emisijaInfo}
 ${audioUrl}`;
 
     fs.writeFileSync('telegram-prvi-glas.m3u', m3uContent);
