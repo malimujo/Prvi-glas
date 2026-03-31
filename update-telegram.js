@@ -31,7 +31,7 @@ async function updateM3U() {
     // 3. Kreiraj M3U
     const emisijaInfo = title.length > 40 ? title.substring(0, 40) + '...' : title;
     const m3uContent = `#EXTM3U
-#EXTINF:-1 tvg-logo="https://transistor.fm/favicon.ico", group-title="Slušaonica", ${emisijaInfo}
+#EXTINF:-1 tvg-logo="https://drive.google.com/uc?id=1AzUL3rJNCNkB0SAORvzzlivSnPwa9LfT", group-title="Slušaonica", ${emisijaInfo}
 ${audioUrl}`;
 
     fs.writeFileSync('telegram-prvi-glas.m3u', m3uContent);
@@ -40,7 +40,7 @@ ${audioUrl}`;
   } catch (error) {
     console.error('❌ Greška:', error.message);
     const fallback = `#EXTM3U
-#EXTINF:-1 tvg-logo="https://transistor.fm/favicon.ico",Telegram Prvi glas - Fallback
+#EXTINF:-1 tvg-logo="https://drive.google.com/uc?id=1AzUL3rJNCNkB0SAORvzzlivSnPwa9LfT",Telegram Prvi glas - Fallback
 https://feeds.transistor.fm/telegram-prvi-glas.mp3`;
     fs.writeFileSync('telegram-prvi-glas.m3u', fallback);
     console.log('✅ Fallback spreman');
