@@ -40,7 +40,7 @@ ${audioUrl}`;
   } catch (error) {
     console.error('❌ Greška:', error.message);
     const fallback = `#EXTM3U
-#EXTINF:-1 tvg-logo="https://drive.google.com/uc?id=1AzUL3rJNCNkB0SAORvzzlivSnPwa9LfT",Telegram Prvi glas - Fallback
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/malimujo/Prvi-glas/blob/main/prvi-glas-cover-update.png",Telegram Prvi glas - Fallback
 https://feeds.transistor.fm/telegram-prvi-glas.mp3`;
     fs.writeFileSync('telegram-prvi-glas.m3u', fallback);
     console.log('✅ Fallback spreman');
